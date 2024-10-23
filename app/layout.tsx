@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
+//import localFont from "next/font/local";
 import "./globals.css";
 import Header from "@/components/Header";
-import { Section } from "lucide-react";
 
 
 export const metadata: Metadata = {
