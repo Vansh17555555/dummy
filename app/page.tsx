@@ -5,6 +5,7 @@ import { Input } from "@/components/ui/input";
 import { motion } from "framer-motion";
 import { Carousel } from 'react-responsive-carousel';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
+import Image from "next/image";
 
 export default function Component() {
   const [email, setEmail] = useState("");
@@ -134,9 +135,11 @@ export default function Component() {
                     `,
                   }}
                 >
-                  <img
+                  <Image
                     src={screenshot.src}
                     alt={screenshot.alt}
+                    width={280}
+                    height={500}
                     className="w-[280px] h-[500px] object-cover rounded-xl"
                   />
                 </div>
@@ -169,9 +172,11 @@ export default function Component() {
                     width: 'fit-content'
                   }}
                 >
-                  <img
+                  <Image
                     src={screenshot.src}
                     alt={screenshot.alt}
+                    width={280}
+                    height={500}
                     className="w-[280px] h-[500px] object-cover rounded-xl"
                   />
                 </div>
