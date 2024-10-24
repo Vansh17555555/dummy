@@ -47,7 +47,7 @@ export default function WaitlistPage() {
     { src: "/Screenshot_20241019_165814_Heaven Estate.jpg", alt: "Property Listing Screen" },
     { src: "/Screenshot_20241019_171609_Heaven Estate.jpg", alt: "Virtual Tour Screen" },
     { src: "/Screenshot_20241019_172103_Heaven Estate.jpg", alt: "Chat Interface" },
-    { src: "/Screenshot_20241019_172103_Heaven Estate.jpg", alt: "Search Filters" },
+    { src: "/Screenshot_20241019_172332_Heaven Estate.jpg", alt: "Search Filters" },
   ]
 
   const settings = {
@@ -64,7 +64,7 @@ export default function WaitlistPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-900 text-white">
+    <div className="min-h-screen bg-gradient-to-br from-gray-800 to-black text-gray-100 flex flex-col items-center justify-center p-4 overflow-hidden relative">
       <style jsx global>{`
         .slick-dots {
           bottom: -40px;
@@ -179,14 +179,14 @@ export default function WaitlistPage() {
 {showSuccessPopup && (
     <div className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex justify-center items-center">
         <div className="bg-gray-800 rounded-lg p-6 max-w-md shadow-lg">
-            <h2 className="text-2xl font-bold text-cyan-400 mb-4">Congratulations!</h2>
+            <h2 className="text-2xl font-bold text-cyan-400 mb-4">Thankyou!</h2>
             <p className="text-lg text-white mb-6">You&apos;ve successfully joined our waitlist!</p>
             <p className="text-lg text-white mb-4">Head over to our groups to stay updated on our progress:</p>
             <div className="flex flex-col gap-2">
-                <a href="YOUR_DISCORD_LINK" target="_blank" rel="noopener noreferrer" className="text-cyan-400 hover:underline">
+                <a href="https://discord.gg/fsWYHaXs" target="_blank" rel="noopener noreferrer" className="text-cyan-400 hover:underline">
                     Join our Discord Server
                 </a>
-                <a href="YOUR_WHATSAPP_LINK" target="_blank" rel="noopener noreferrer" className="text-cyan-400 hover:underline">
+                <a href="https://chat.whatsapp.com/HRUZayVguCbE45mRDefGjp" target="_blank" rel="noopener noreferrer" className="text-cyan-400 hover:underline">
                     Join our WhatsApp Group
                 </a>
             </div>
