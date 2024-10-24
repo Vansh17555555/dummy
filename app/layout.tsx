@@ -19,11 +19,10 @@ export default function RootLayout({
       <body
         className="bg-gradient-to-r from-gray-800 to-black"
       >
+      
         
-        <Header/>
-        <section className="mt-24">
         {children}
-        </section>
+        
         
       </body>
     </html>
