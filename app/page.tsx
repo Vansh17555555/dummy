@@ -180,7 +180,7 @@ export default function WaitlistPage() {
     <div className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex justify-center items-center">
         <div className="bg-gray-800 rounded-lg p-6 max-w-md shadow-lg">
             <h2 className="text-2xl font-bold text-cyan-400 mb-4">Congratulations!</h2>
-            <p className="text-lg text-white mb-6">You've successfully joined our waitlist!</p>
+            <p className="text-lg text-white mb-6">You&apos;ve successfully joined our waitlist!</p>
             <p className="text-lg text-white mb-4">Head over to our groups to stay updated on our progress:</p>
             <div className="flex flex-col gap-2">
                 <a href="YOUR_DISCORD_LINK" target="_blank" rel="noopener noreferrer" className="text-cyan-400 hover:underline">
