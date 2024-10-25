@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import Image from 'next/image'
+import { FaExternalLinkAlt } from "react-icons/fa";
 import { motion } from 'framer-motion'
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -78,14 +79,14 @@ export default function WaitlistPage() {
       `}</style>
 
       <header className="container mx-auto px-4 py-6 flex justify-between items-center">
-        <h1 className="text-2xl font-bold text-cyan-400">Heaven-estate</h1>
+        <h1 className="text-2xl font-bold text-purple-600">Heaven-estate</h1>
         <Button variant="default" size="lg" className="rounded-full" asChild>
           <motion.a
-            href="#waitlist"
+href="https://www.emodev.tech"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            Join Waitlist
+            EmoDev <FaExternalLinkAlt />
           </motion.a>
         </Button>
       </header>
@@ -106,10 +107,10 @@ export default function WaitlistPage() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="Enter your email"
-                className="flex-grow rounded-full"
+                className="flex-grow rounded-full pl-4"
                 required
               />
-              <Button type="submit" size="lg" className="rounded-full" disabled={isLoading}>
+              <Button type="submit" size="lg" className="rounded-full bg-violet-700 sm:text-[18px] text-[15px]" disabled={isLoading}>
                 {isLoading ? 'Loading...' : 'Join Waitlist'}
               </Button>
             </form>
@@ -117,59 +118,64 @@ export default function WaitlistPage() {
 
           {/* Desktop Carousel */}
           <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="lg:w-1/2 hidden lg:block"
-          >
-            <Card className="bg-transparent border-none">
-              <CardContent className="p-0">
-                <Slider {...settings}>
-                  {mobileScreenshots.map((screenshot, index) => (
-                    <div key={index} className="px-4">
-                      <Image
-                        src={screenshot.src}
-                        alt={screenshot.alt}
-                        width={300}
-                        height={600}
-                        className="mx-auto rounded-lg shadow-lg"
-                      />
-                    </div>
-                  ))}
-                </Slider>
-              </CardContent>
-            </Card>
-          </motion.div>
+  initial={{ opacity: 0, x: 20 }}
+  animate={{ opacity: 1, x: 0 }}
+  transition={{ duration: 0.8, delay: 0.2 }}
+  className="lg:w-1/2 hidden lg:block"
+>
+  <Card className="bg-transparent border-none">
+    <CardContent className="p-0">
+      <Slider {...settings}>
+        {mobileScreenshots.map((screenshot, index) => (
+          <div key={index} className="px-4">
+            <div className="border-2 border-gray-300 rounded-[32px] p-4 shadow-lg bg-gray-50 max-w-xs mx-auto">
+              <Image
+                src={screenshot.src}
+                alt={screenshot.alt}
+                width={300}
+                height={600}
+                className="rounded-[24px]"
+              />
+            </div>
+          </div>
+        ))}
+      </Slider>
+    </CardContent>
+  </Card>
+</motion.div>
 
-          {/* Mobile Grid */}
+
+<motion.div
+  initial={{ opacity: 0, x: 20 }}
+  animate={{ opacity: 1, x: 0 }}
+  transition={{ duration: 0.8, delay: 0.2 }}
+  className="lg:hidden w-full"
+>
+  <Card className="bg-gray-800 border-gray-700">
+    <CardContent className="p-6">
+      <div className="grid grid-cols-2 gap-4">
+        {mobileScreenshots.map((screenshot, index) => (
           <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="lg:hidden w-full"
+            key={index}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
           >
-            <Card className="bg-gray-800 border-gray-700">
-              <CardContent className="p-6">
-                <div className="grid grid-cols-2 gap-4">
-                  {mobileScreenshots.map((screenshot, index) => (
-                    <motion.div
-                      key={index}
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                    >
-                      <Image
-                        src={screenshot.src}
-                        alt={screenshot.alt}
-                        width={300}
-                        height={600}
-                        className="rounded-lg shadow-lg object-cover"
-                      />
-                    </motion.div>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
+            <div className="w-full h-full overflow-hidden  shadow-lg rounded-[6px]">
+              <Image
+                src={screenshot.src}
+                alt={screenshot.alt}
+                width={300}
+                height={600}
+                className="object-cover w-full h-full rounded-lg"
+              />
+            </div>
           </motion.div>
+        ))}
+      </div>
+    </CardContent>
+  </Card>
+</motion.div>
+
         </div>
       </main>
 
