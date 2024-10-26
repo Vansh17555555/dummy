@@ -99,8 +99,9 @@ href="https://www.emodev.tech"
             transition={{ duration: 0.8 }}
             className="lg:w-1/2"
           >
-            <h2 className="text-4xl lg:text-5xl font-bold mb-6">Experience Real Estate Like Never Before</h2>
-            <p className="text-xl mb-8">Join our waitlist and be the first to access our revolutionary real estate app. Discover properties, take virtual tours, and connect with agents - all from your smartphone.</p>
+            <h2 className="text-4xl lg:text-5xl font-bold mb-6">Discover,Design,Connect</h2>
+            <p className="text-xl mb-8">
+Ready to bring your design visions to life? Sign up for early access to Heaven Estate and be part of a world where creativity and inspiration connect.</p>
             <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-4" id="waitlist">
               <Input
                 type="email"
