@@ -44,6 +44,12 @@ export default function WaitlistPage() {
     setShowSuccessPopup(false)
   }
 
+  const DesktopScreenshots = [
+    { src: "/Untitled_design__3_-removebg-preview.png", alt: "Property Listing Screen" },
+    { src: "/Untitled_design__2_-removebg.png", alt: "Virtual Tour Screen" },
+    { src: "/Untitled_design__4_-removebg-preview.png", alt: "Chat Interface" },
+    { src: "/Untitled_design__5_-removebg-preview.png", alt: "Search Filters" },
+  ]
   const mobileScreenshots = [
     { src: "/Screenshot_20241019_165814_Heaven Estate.jpg", alt: "Property Listing Screen" },
     { src: "/Screenshot_20241019_171609_Heaven Estate.jpg", alt: "Virtual Tour Screen" },
@@ -126,15 +132,15 @@ href="https://www.emodev.tech"
   <Card className="bg-transparent border-none">
     <CardContent className="p-0">
       <Slider {...settings}>
-        {mobileScreenshots.map((screenshot, index) => (
+        {DesktopScreenshots.map((screenshot, index) => (
           <div key={index} className="px-4">
-            <div className="border-2 border-gray-300 rounded-[32px] p-4 shadow-lg bg-gray-50 max-w-xs mx-auto">
+            <div className="border-0 rounded-[32px] p-4 shadow-lg max-w-xs mx-auto">
               <Image
                 src={screenshot.src}
                 alt={screenshot.alt}
-                width={300}
+                width={400}
                 height={600}
-                className="rounded-[24px]"
+                className="rounded-[40px]"
               />
             </div>
           </div>
