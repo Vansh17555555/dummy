@@ -45,10 +45,10 @@ export default function WaitlistPage() {
   }
 
   const DesktopScreenshots = [
-    { src: "/Untitled_design__3_-removebg-preview.png", alt: "Property Listing Screen" },
-    { src: "/Untitled_design__2_-removebg.png", alt: "Virtual Tour Screen" },
-    { src: "/Untitled_design__4_-removebg-preview.png", alt: "Chat Interface" },
-    { src: "/Untitled_design__5_-removebg-preview.png", alt: "Search Filters" },
+    { src: "/1.png", alt: "Property Listing Screen" },
+    { src: "/2.png", alt: "Virtual Tour Screen" },
+    { src: "/3.png", alt: "Chat Interface" },
+    { src: "/4.png", alt: "Search Filters" },
   ]
   const mobileScreenshots = [
     { src: "/Screenshot_20241019_165814_Heaven Estate.jpg", alt: "Property Listing Screen" },
