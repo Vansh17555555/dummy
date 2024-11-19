@@ -12,50 +12,81 @@ import "slick-carousel/slick/slick-theme.css"
 import Image from 'next/image';
 
 export default function WaitlistPage() {
-  const [email, setEmail] = useState('')
-  const [isLoading, setIsLoading] = useState(false)
-  const [showSuccessPopup, setShowSuccessPopup] = useState(false)
+  const [email, setEmail] = useState('');
+  const [emailError, setEmailError] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
+  const [showSuccessPopup, setShowSuccessPopup] = useState(false);
+
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+  const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const inputEmail = e.target.value;
+    setEmail(inputEmail);
+
+    if (!emailRegex.test(inputEmail)) {
+      setEmailError('Please enter a valid email address');
+    } else {
+      setEmailError('');
+    }
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    setIsLoading(true)
-  
-    try {
-      const response = await fetch('https://script.google.com/macros/s/AKfycbwchqixO7fl-3HoCiHCc2FQjl_8VhYdLT_L9QghOJWF29dGBs7HMXT4gF5rmcRUvoXf/exec', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/x-www-form-urlencoded',
-        },
-        body: new URLSearchParams({ email })
-      })
-      const result = await response.text()
-      console.log('Submitted email:', result)
-      setShowSuccessPopup(true) // Show success popup
-      setEmail('') // Clear the email input after successful submission
-    } catch (error) {
-      console.error('Error submitting email:', error)
-      alert('Failed to submit email')
-    } finally {
-      setIsLoading(false)
+    e.preventDefault();
+    setIsLoading(true);
+
+    // Check if email format is valid
+    if (!emailRegex.test(email)) {
+      setEmailError('Please enter a valid email address');
+      setIsLoading(false);
+      return;
     }
-  }
+
+    try {
+      // Validate email using AbstractAPI
+      const response = await fetch(`https://emailvalidation.abstractapi.com/v1/?api_key=4292bed91b404a3cb31155174405f91f&email=${email}`);
+      const data = await response.json();
+
+      // If the email is valid, proceed with submission
+      if (data.is_valid_format && data.deliverability) {
+        const result = await fetch('https://script.google.com/macros/s/AKfycbwchqixO7fl-3HoCiHCc2FQjl_8VhYdLT_L9QghOJWF29dGBs7HMXT4gF5rmcRUvoXf/exec', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+          },
+          body: new URLSearchParams({ email })
+        });
+        const responseText = await result.text();
+        console.log('Submitted email:', responseText);
+        setShowSuccessPopup(true); // Show success popup
+        setEmail(''); // Clear the email input after successful submission
+      } else {
+        setEmailError('Please enter a valid, deliverable email address');
+      }
+    } catch (error) {
+      console.error('Error submitting email:', error);
+      alert('Failed to validate email');
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
   const handleClosePopup = () => {
-    setShowSuccessPopup(false)
-  }
+    setShowSuccessPopup(false);
+  };
 
   const DesktopScreenshots = [
     { src: "/1.png", alt: "Property Listing Screen" },
     { src: "/2.png", alt: "Virtual Tour Screen" },
     { src: "/3.png", alt: "Chat Interface" },
     { src: "/4.png", alt: "Search Filters" },
-  ]
+  ];
+
   const mobileScreenshots = [
     { src: "/Screenshot_20241019_165814_Heaven Estate.jpg", alt: "Property Listing Screen" },
     { src: "/Screenshot_20241019_171609_Heaven Estate.jpg", alt: "Virtual Tour Screen" },
     { src: "/Screenshot_20241019_172103_Heaven Estate.jpg", alt: "Chat Interface" },
     { src: "/Screenshot_20241019_172332_Heaven Estate.jpg", alt: "Search Filters" },
-  ]
+  ];
 
   const settings = {
     dots: true,
@@ -70,21 +101,21 @@ export default function WaitlistPage() {
     autoplaySpeed: 3000,
     responsive: [
       {
-        breakpoint: 768, 
+        breakpoint: 768,
         settings: {
           slidesToShow: 1,
           centerMode: false,
         },
       },
       {
-        breakpoint: 480, 
+        breakpoint: 480,
         settings: {
           slidesToShow: 1,
           arrows: true,
         },
       },
     ],
-  }
+  };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-[#132054] via-[#1a326f] to-[#1c2e7e] text-gray-100 flex flex-col items-center justify-center p-4 overflow-hidden relative">
@@ -128,11 +159,12 @@ export default function WaitlistPage() {
             <Input
               type="email"
               value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              onChange={handleEmailChange}
               placeholder="Enter your email"
               className="flex-grow rounded-full pl-4 bg-slate-700 text-sm sm:text-base xs:text-xs py-2"
               required
             />
+            {emailError && <p className="text-red-500 text-sm">{emailError}</p>}
             <Button type="submit" size="lg" className="rounded-full bg-white text-black sm:text-[18px] text-[15px] xs:text-[14px] py-2" disabled={isLoading}>
               {isLoading ? 'Loading...' : 'Join Waitlist'}
             </Button>
@@ -208,7 +240,7 @@ export default function WaitlistPage() {
             <h2 className="text-2xl font-bold text-[#1a326f] mb-4 text-center">Thank you!</h2>
             <p className="text-lg ml-2 text-black mb-6 text-center">You&apos;ve successfully joined our waitlist!</p>
 
-               <p className="text-lg text-black mb-4 text-center">Head over to our groups to stay updated on our progress:</p>
+            <p className="text-lg text-black mb-4 text-center">Head over to our groups to stay updated on our progress:</p>
             <div className="flex flex-col gap-2">
               <a
                 href="https://discord.gg/WnNuyfetD3"
