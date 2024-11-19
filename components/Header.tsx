@@ -27,7 +27,7 @@ export default function Header() {
 
         {/* Desktop Menu */}
         <nav className="hidden md:flex space-x-6 items-center">
-          <Button className="bg-indigo-600 hover:bg-indigo-700 ml-4">
+          <Button className="bg-white hover:bg-indigo-700 ml-4">
             Join Waitlist
           </Button>
         </nav>

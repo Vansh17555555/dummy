@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import Image from 'next/image'
+
 import { FaExternalLinkAlt } from "react-icons/fa";
 import { motion } from 'framer-motion'
 import { Button } from "@/components/ui/button"
@@ -10,7 +10,7 @@ import { Card, CardContent } from "@/components/ui/card"
 import Slider from "react-slick"
 import "slick-carousel/slick/slick.css"
 import "slick-carousel/slick/slick-theme.css"
-
+import  Image  from 'next/image';
 export default function WaitlistPage() {
   const [email, setEmail] = useState('')
   const [isLoading, setIsLoading] = useState(false)
@@ -71,8 +71,8 @@ export default function WaitlistPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-800 to-black text-gray-100 flex flex-col items-center justify-center p-4 overflow-hidden relative">
-      <style jsx global>{`
+<div className="min-h-screen bg-gradient-to-br from-[#132054] via-[#1a326f] to-[#1c2e7e] text-gray-100 flex flex-col items-center justify-center p-4 overflow-hidden relative">
+<style jsx global>{`
         .slick-dots {
           bottom: -40px;
         }
@@ -85,7 +85,7 @@ export default function WaitlistPage() {
       `}</style>
 
       <header className="container mx-auto px-4 py-6 flex justify-between items-center">
-        <h1 className="text-2xl font-bold text-purple-600">Heaven estate</h1>
+        <Image src="/Final-removebg-preview.png" width={150} height={200} alt="Logo"/>
         <Button variant="default" size="lg" className="rounded-full" asChild>
           <motion.a
 href="https://www.emodev.tech"
@@ -114,10 +114,10 @@ Ready to bring your design visions to life? Sign up for early access to Heaven E
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="Enter your email"
-                className="flex-grow rounded-full pl-4"
+                className="flex-grow rounded-full pl-4 bg-slate-700"
                 required
               />
-              <Button type="submit" size="lg" className="rounded-full bg-violet-700 sm:text-[18px] text-[15px]" disabled={isLoading}>
+              <Button type="submit" size="lg" className="rounded-full bg-white text-black sm:text-[18px] text-[15px]" disabled={isLoading}>
                 {isLoading ? 'Loading...' : 'Join Waitlist'}
               </Button>
             </form>
@@ -158,7 +158,7 @@ Ready to bring your design visions to life? Sign up for early access to Heaven E
   transition={{ duration: 0.8, delay: 0.2 }}
   className="lg:hidden w-full"
 >
-  <Card className="bg-gray-800 border-gray-700">
+  <Card className=" border-gray-700">
     <CardContent className="p-6">
       <div className="grid grid-cols-2 gap-4">
         {mobileScreenshots.map((screenshot, index) => (
