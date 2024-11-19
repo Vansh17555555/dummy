@@ -203,18 +203,18 @@ export default function WaitlistPage() {
 
       {/* Success Popup */}
       {showSuccessPopup && (
-        <div className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex justify-center items-center">
-          <div className="bg-gray-800 rounded-lg p-4 max-w-md w-[90%] sm:w-[80%] md:w-[60%]">
-            <h2 className="text-2xl font-bold text-cyan-400 mb-4 text-center">Thank you!</h2>
-            <p className="text-lg text-white mb-6">You&apos;ve successfully joined our waitlist!</p>
+        <div className="fixed top-0 left-0 w-full h-full bg-[#1a326f] bg-opacity-50 flex justify-center items-center">
+          <div className="bg-white rounded-lg p-4 max-w-md w-[90%] sm:w-[80%] md:w-[60%] flex flex-col justify-center items-center">
+            <h2 className="text-2xl font-bold text-[#1a326f] mb-4 text-center">Thank you!</h2>
+            <p className="text-lg ml-2 text-black mb-6 text-center">You&apos;ve successfully joined our waitlist!</p>
 
-               <p className="text-lg text-white mb-4 text-center">Head over to our groups to stay updated on our progress:</p>
+               <p className="text-lg text-black mb-4 text-center">Head over to our groups to stay updated on our progress:</p>
             <div className="flex flex-col gap-2">
               <a
-                href="https://discord.gg/fsWYHaXs"
+                href="https://discord.gg/WnNuyfetD3"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-cyan-400 hover:underline text-center"
+                className="text-[#1a326f] hover:underline text-center"
               >
                 Join our Discord Server
               </a>
@@ -222,14 +222,14 @@ export default function WaitlistPage() {
                 href="https://chat.whatsapp.com/HRUZayVguCbE45mRDefGjp"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-cyan-400 hover:underline text-center"
+                className="text-[#1a326f] hover:underline text-center"
               >
                 Join our WhatsApp Group
               </a>
             </div>
             <Button
               size="lg"
-              className="rounded-full bg-cyan-400 text-gray-900 mt-4"
+              className="rounded-full bg-[#1a326f] text-white mt-4 "
               onClick={handleClosePopup}
             >
               Close
