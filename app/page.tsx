@@ -120,7 +120,7 @@ export default function WaitlistPage() {
           transition={{ duration: 0.8 }}
           className="lg:w-1/2 w-full mb-4"
         >
-          <h2 className="text-3xl lg:text-4xl font-bold mb-4 text-[2rem] sm:text-[1.75rem] xs:text-[1.5rem]">Discover, Design, Connect</h2>
+          <h2 className="text-3xl lg:text-4xl font-bold 2xl:mt-28 mb-4 text-[2rem] sm:text-[1.75rem] xs:text-[1.5rem]">Discover, Design, Connect</h2>
           <p className="text-lg mb-6 text-[1.125rem] sm:text-[1rem] xs:text-[0.875rem]">
             Ready to bring your design visions to life? Sign up for early access to Ambio and be part of a world where creativity and inspiration connect.
           </p>
