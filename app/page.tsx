@@ -30,6 +30,7 @@ export default function WaitlistPage() {
     }
   };
 
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
@@ -46,8 +47,15 @@ export default function WaitlistPage() {
       const response = await fetch(`https://emailvalidation.abstractapi.com/v1/?api_key=4292bed91b404a3cb31155174405f91f&email=${email}`);
       const data = await response.json();
 
-      // If the email is valid, proceed with submission
-      if (data.is_valid_format && data.deliverability) {
+      // Check if the email format is valid and deliverable
+      if (!data.is_valid_format.value) {
+        setEmailError('Please enter a valid email address');
+      } else if (data.is_mx_found.value === false || data.is_smtp_valid.value === false) {
+        setEmailError('This email address is undeliverable');
+      } else if (data.deliverability === 'UNDELIVERABLE') {
+        setEmailError('This email address is undeliverable');
+      } else {
+        // Proceed with submission if email is valid and deliverable
         const result = await fetch('https://script.google.com/macros/s/AKfycbwchqixO7fl-3HoCiHCc2FQjl_8VhYdLT_L9QghOJWF29dGBs7HMXT4gF5rmcRUvoXf/exec', {
           method: 'POST',
           headers: {
@@ -59,8 +67,6 @@ export default function WaitlistPage() {
         console.log('Submitted email:', responseText);
         setShowSuccessPopup(true); // Show success popup
         setEmail(''); // Clear the email input after successful submission
-      } else {
-        setEmailError('Please enter a valid, deliverable email address');
       }
     } catch (error) {
       console.error('Error submitting email:', error);
