@@ -25,7 +25,7 @@ export default function RootLayout({
         <link rel="preload" href="/Untitled_design__5_-removebg-preview.png" as="image" />
       </head>
       <body className="bg-gradient-to-r from-gray-800 to-black">
-        {/* Google Analytics */}
+      {/*-- Google tag (gtag.js) --*/}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-PL78QCCX08"
           strategy="afterInteractive"
