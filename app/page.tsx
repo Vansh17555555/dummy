@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { FaExternalLinkAlt } from "react-icons/fa";
+import { FaTwitter, FaInstagram, FaLinkedin, FaEnvelope } from "react-icons/fa";
 import { motion } from 'framer-motion'
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -138,27 +138,52 @@ export default function WaitlistPage() {
       `}</style>
 
       <header className="container mx-auto px-4 py-4 flex justify-between items-center">
-        <Image src="/Final-removebg-preview.png" width={150} height={200} alt="Logo"/>
-        <Button variant="default" size="lg" className="rounded-full" asChild>
+        <Image src="/Final-removebg-preview.png" width={150} height={200} alt="Logo" className="w-[100px] sm:w-[120px] md:w-[150px]"/>
+        <div className="flex gap-4 sm:gap-6 mr-4 sm:mr-8">
           <motion.a
-            href="https://www.emodev.tech"
+            href="https://twitter.com/yourusername"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
+            className="text-white hover:text-gray-300"
           >
-            EmoDev <FaExternalLinkAlt />
+            <FaTwitter size={20} className="sm:text-2xl md:text-3xl" />
           </motion.a>
-        </Button>
+          <motion.a
+            href="https://instagram.com/yourusername"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="text-white hover:text-gray-300"
+          >
+            <FaInstagram size={20} className="sm:text-2xl md:text-3xl" />
+          </motion.a>
+          <motion.a
+            href="https://linkedin.com/in/yourusername"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="text-white hover:text-gray-300"
+          >
+            <FaLinkedin size={20} className="sm:text-2xl md:text-3xl" />
+          </motion.a>
+          <motion.a
+            href="mailto:your@email.com"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="text-white hover:text-gray-300"
+          >
+            <FaEnvelope size={20} className="sm:text-2xl md:text-3xl" />
+          </motion.a>
+        </div>
       </header>
 
-      <main className="container mx-auto px-4 py-8 max-w-[calc(100%-120px)] flex flex-col lg:flex-row gap-8 lg:gap-16">
+      <main className="container mx-auto px-4 py-8 max-w-[calc(100%-32px)] sm:max-w-[calc(100%-64px)] md:max-w-[calc(100%-120px)] flex flex-col lg:flex-row gap-8 lg:gap-16">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           className="lg:w-1/2 w-full mb-4"
         >
-          <h2 className="text-3xl lg:text-4xl font-bold 2xl:mt-28 mb-4 text-[2rem] sm:text-[1.75rem] xs:text-[1.5rem]">Discover, Design, Connect</h2>
-          <p className="text-lg mb-6 text-[1.125rem] sm:text-[1rem] xs:text-[0.875rem]">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold 2xl:mt-28 mb-4">Discover, Design, Connect</h2>
+          <p className="text-base sm:text-lg mb-6">
             Ready to bring your design visions to life? Sign up for early access to Ambio and be part of a world where creativity and inspiration connect.
           </p>
           <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3 sm:gap-4" id="waitlist">
@@ -167,11 +192,11 @@ export default function WaitlistPage() {
               value={email}
               onChange={handleEmailChange}
               placeholder="Enter your email"
-              className="flex-grow rounded-full pl-4 bg-slate-700 text-sm sm:text-base xs:text-xs py-2"
+              className="flex-grow rounded-full pl-4 bg-slate-700 text-sm sm:text-base py-2"
               required
             />
             {emailError && <p className="text-red-500 text-sm">{emailError}</p>}
-            <Button type="submit" size="lg" className="rounded-full bg-white text-black sm:text-[18px] text-[15px] xs:text-[14px] py-2" disabled={isLoading}>
+            <Button type="submit" size="lg" className="rounded-full bg-white text-black text-sm sm:text-base py-2" disabled={isLoading}>
               {isLoading ? 'Loading...' : 'Join Waitlist'}
             </Button>
           </form>
@@ -195,7 +220,7 @@ export default function WaitlistPage() {
                         alt={screenshot.alt}
                         width={400}
                         height={600}
-                        className="rounded-[40px]"
+                        className="rounded-[40px] w-full h-auto"
                       />
                     </div>
                   </div>
