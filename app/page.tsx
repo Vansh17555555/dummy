@@ -164,13 +164,14 @@ export default function WaitlistPage() {
           >
             <FaLinkedin size={20} className="sm:text-2xl md:text-3xl" />
           </motion.a>
-          <motion.a
-            href="mailto:your@email.com"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="text-white hover:text-gray-300"
-          >
-            <FaEnvelope size={20} className="sm:text-2xl md:text-3xl" />
+         <motion.a
+  href="mailto:Emodevelopers@gmail.com"
+  whileHover={{ scale: 1.05 }}
+  whileTap={{ scale: 0.95 }}
+  className="text-white hover:text-gray-300"
+>
+
+ <FaEnvelope size={20} className="sm:text-2xl md:text-3xl" />
           </motion.a>
         </div>
       </header>
