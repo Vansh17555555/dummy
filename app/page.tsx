@@ -44,7 +44,7 @@ export default function WaitlistPage() {
 
     try {
       // Validate email using AbstractAPI
-      const response = await fetch(`https://emailvalidation.abstractapi.com/v1/?api_key=4292bed91b404a3cb31155174405f91f&email=${email}`);
+      const response = await fetch(`https://emailvalidation.abstractapi.com/v1/?api_key=701c44ebd7d04fd281a18bad696edf8a&email=${email}`);
       const data = await response.json();
 
       // Check if the email format is valid and deliverable
@@ -141,7 +141,7 @@ export default function WaitlistPage() {
         <Image src="/Final-removebg-preview.png" width={150} height={200} alt="Logo" className="w-[100px] sm:w-[120px] md:w-[150px]"/>
         <div className="flex gap-4 sm:gap-6 mr-4 sm:mr-8">
           <motion.a
-            href="https://twitter.com/yourusername"
+            href="https://x.com/theambio"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             className="text-white hover:text-gray-300"
@@ -149,7 +149,7 @@ export default function WaitlistPage() {
             <FaTwitter size={20} className="sm:text-2xl md:text-3xl" />
           </motion.a>
           <motion.a
-            href="https://instagram.com/yourusername"
+            href="https://www.instagram.com/theambio/?igsh=MW9lNWs3bmFvdzk0#"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             className="text-white hover:text-gray-300"
@@ -157,7 +157,7 @@ export default function WaitlistPage() {
             <FaInstagram size={20} className="sm:text-2xl md:text-3xl" />
           </motion.a>
           <motion.a
-            href="https://linkedin.com/in/yourusername"
+            href="https://www.linkedin.com/showcase/105685710/admin/dashboard/"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             className="text-white hover:text-gray-300"
